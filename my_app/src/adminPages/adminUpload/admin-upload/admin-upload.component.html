@@ -1,0 +1,28 @@
+<div id="input">
+    <label for="file-input">Browsing</label>
+    <input type="file" id="file-input" accept="image/*" #fileInput hidden>
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name">
+  
+    <label for="component">Component:</label>
+    <input type="text" id="component" [(ngModel)]="component">
+
+    <label for="price">Price:</label>
+    <input type="text" id="price" [(ngModel)]="price">
+  
+    <button mat-raised-button color="primary" (click)="uploadButton()">Upload</button>
+</div>
+
+<div id="output">
+    <h3>Uploaded Data</h3>
+    <ul>
+        <li *ngFor="let data of uploadedData">
+          <img [src]="data.file" alt="Uploaded Image">
+          <p>Name: {{ data.name }}</p>
+          <p>Component: {{ data.component }}</p>
+          <p>Price: {{ data.price }} Ft</p>
+          <button mat-raised-button color="primary" (click)="deleteButton(data._id)">Törlés</button>
+        </li>
+      </ul>
+</div>
