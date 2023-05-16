@@ -11,6 +11,8 @@ export class AdminUploadComponent implements OnInit {
   component!: string;
   price!: string;
   uploadedData: any[] = [];
+  searchTerm: string = '';
+  originalData: any[] = []; 
 
   constructor(private http: HttpClient) {}
 
@@ -60,6 +62,7 @@ export class AdminUploadComponent implements OnInit {
       response => {
         console.log('Adatok lekérése sikeres!', response);
         this.uploadedData = response as any[]; // Feltöltött adatokat mentjük
+        this.originalData = [...this.uploadedData]; // Másolatot készítünk az eredeti adatokról
       },
       error => {
         console.error('Adatok lekérése sikertelen.', error);
@@ -72,7 +75,7 @@ export class AdminUploadComponent implements OnInit {
       this.http.delete(`http://localhost:3000/api/data/${id}`).subscribe(
         response => {
           console.log('Az adat törlése sikeres volt!', response);
-          this.fetchData(); // Frissítjük az adatokat a törlés után
+          this.fetchData(); 
         },
         error => {
           console.error('Az adat törlése sikertelen.', error);
@@ -80,6 +83,22 @@ export class AdminUploadComponent implements OnInit {
       );
     }
   }
+
+  
+filterData() {
+  if (this.searchTerm.trim() === '') {
+    this.uploadedData = [...this.originalData];
+  } else {
+    this.uploadedData = this.originalData.filter(data =>
+      data.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    ); 
+  }
+}
+
+clearSearch() {
+  this.searchTerm = '';
+  this.filterData(); 
+}
 
   
 }

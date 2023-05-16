@@ -1,8 +1,21 @@
 #input{
     display: flex;
     align-items: center;
+    justify-content: space-around;
+}
+
+#uploadInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding: 10px;
+}
+
+#clear{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-self: flex-end
 }
 
 
