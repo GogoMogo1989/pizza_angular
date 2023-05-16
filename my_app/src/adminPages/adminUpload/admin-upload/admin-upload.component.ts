@@ -29,7 +29,6 @@ export class AdminUploadComponent implements OnInit {
 
       reader.onload = () => {
         const base64String = reader.result as string;
-        console.log(base64String)
 
         const data = {
           file: base64String,
@@ -42,6 +41,9 @@ export class AdminUploadComponent implements OnInit {
           response => {
             console.log('Adatok feltöltése sikeres!', response);
             this.fetchData(); // Frissítjük az adatokat a feltöltés után
+            this.name = "";
+            this.price ="";
+            this.component=""
           },
           error => {
             console.error('Adatok feltöltése sikertelen.', error);
@@ -85,20 +87,19 @@ export class AdminUploadComponent implements OnInit {
   }
 
   
-filterData() {
-  if (this.searchTerm.trim() === '') {
-    this.uploadedData = [...this.originalData];
-  } else {
-    this.uploadedData = this.originalData.filter(data =>
-      data.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    ); 
+  filterData() {
+    if (this.searchTerm.trim() === '') { //Ellenőrizzük, hogy a searchterm értéke üres, vagy csak szóközt tartlamazza-e
+      this.uploadedData = [...this.originalData]; //Ha igen, akkor az uploadedData-ba a másolatot töltjük be róla
+    } else { //Ha nem üres a searchTerm
+      this.uploadedData = this.originalData.filter(data => //Akkor szűrünk a névre.
+        data.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      ); 
+    }
   }
-}
 
-clearSearch() {
-  this.searchTerm = '';
-  this.filterData(); 
-}
-
-  
+  clearSearch() { //gomb megnyomásával resetelünk
+    this.searchTerm = '';
+    this.filterData(); 
+  }
+ 
 }
