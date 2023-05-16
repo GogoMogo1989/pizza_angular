@@ -18,8 +18,8 @@ li{
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Négy egyenlő szélességű oszlop */
-    grid-gap: 10px; /* 10px távolság a grid elemek között */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 10px;
 }
 
 h3{
