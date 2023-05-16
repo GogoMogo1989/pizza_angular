@@ -44,6 +44,9 @@ export class AdminUploadComponent implements OnInit {
           error => {
             console.error('Adatok feltöltése sikertelen.', error);
             this.fetchData();
+            this.name = "";
+            this.price ="";
+            this.component=""
           }
         );
       };

@@ -1,0 +1,27 @@
+#input{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+img{
+    width: 200px;
+}
+
+li{
+    list-style-type: none;
+    padding: 10px;
+    background-color: rgb(249, 247, 247);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Négy egyenlő szélességű oszlop */
+    grid-gap: 10px; /* 10px távolság a grid elemek között */
+}
+
+h3{
+    margin-left: 40px;
+}

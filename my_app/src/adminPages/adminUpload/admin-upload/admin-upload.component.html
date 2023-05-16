@@ -2,27 +2,34 @@
     <label for="file-input">Browsing</label>
     <input type="file" id="file-input" accept="image/*" #fileInput hidden>
   
-    <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="name">
+    <mat-form-field appearance="fill">
+        <mat-label>Name:</mat-label>
+        <input matInput type="text" id="name" [(ngModel)]="name">
+    </mat-form-field>
   
-    <label for="component">Component:</label>
-    <input type="text" id="component" [(ngModel)]="component">
+    <mat-form-field appearance="fill">
+        <mat-label>Component:</mat-label>
+        <input matInput type="text" id="component" [(ngModel)]="component">
+    </mat-form-field>
 
-    <label for="price">Price:</label>
-    <input type="text" id="price" [(ngModel)]="price">
+    <mat-form-field appearance="fill">
+        <mat-label>Price:</mat-label>
+        <input matInput type="text" id="price" [(ngModel)]="price">
+    </mat-form-field>
   
     <button mat-raised-button color="primary" (click)="uploadButton()">Upload</button>
 </div>
 
 <div id="output">
-    <h3>Uploaded Data</h3>
-    <ul>
+    <h3>Pizza's</h3>
+    <ul class="grid-container">
         <li *ngFor="let data of uploadedData">
-          <img [src]="data.file" alt="Uploaded Image">
-          <p>Name: {{ data.name }}</p>
-          <p>Component: {{ data.component }}</p>
-          <p>Price: {{ data.price }} Ft</p>
-          <button mat-raised-button color="primary" (click)="deleteButton(data._id)">Törlés</button>
+            <img [src]="data.file" alt="Uploaded Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" (click)="deleteButton(data._id)">Törlés</button>
         </li>
-      </ul>
+    </ul>
 </div>
