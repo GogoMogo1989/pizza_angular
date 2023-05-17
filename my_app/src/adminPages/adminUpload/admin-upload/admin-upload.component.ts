@@ -95,7 +95,7 @@ export class AdminUploadComponent implements OnInit {
 
   
   filterData() {
-    if(this.searchTerm === "" && this.selectedOption2 === ""){
+    if(this.searchTerm === null && this.selectedOption2 === null){
       this.fetchData()
     }else{
       this.uploadedData = this.originalData.filter(data => 

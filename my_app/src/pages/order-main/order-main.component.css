@@ -1,0 +1,15 @@
+.toolbar{
+    margin-top:64px;
+    background-color:#d81919;
+    height: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.toolbar button :hover{
+    color: rgb(240, 240, 18);
+}

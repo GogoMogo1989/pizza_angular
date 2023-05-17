@@ -1,0 +1,38 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.image-container img {
+    object-fit: cover;
+    width: 125px;
+}
+
+.image-container button {
+    width: 150px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.button-container button {
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.button-container button :hover{
+    color: #d81919;
+}
