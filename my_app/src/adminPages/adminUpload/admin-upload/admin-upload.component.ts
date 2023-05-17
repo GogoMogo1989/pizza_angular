@@ -6,13 +6,16 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './admin-upload.component.html',
   styleUrls: ['./admin-upload.component.css']
 })
+
 export class AdminUploadComponent implements OnInit {
   name!: string;
   component!: string;
   price!: string;
+  option!: string;
   uploadedData: any[] = [];
   searchTerm: string = '';
   originalData: any[] = []; 
+  selectedOption: string|null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -34,7 +37,8 @@ export class AdminUploadComponent implements OnInit {
           file: base64String,
           name: this.name,
           component: this.component,
-          price: this.price
+          price: this.price,
+          option: this.selectedOption
         };
 
         this.http.post('http://localhost:3000/api/data', data).subscribe(
@@ -43,14 +47,16 @@ export class AdminUploadComponent implements OnInit {
             this.fetchData(); // Frissítjük az adatokat a feltöltés után
             this.name = "";
             this.price ="";
-            this.component=""
+            this.component="";
+            this.option=""
           },
           error => {
             console.error('Adatok feltöltése sikertelen.', error);
             this.fetchData();
             this.name = "";
             this.price ="";
-            this.component=""
+            this.component="";
+            this.option=""
           }
         );
       };

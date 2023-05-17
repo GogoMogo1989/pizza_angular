@@ -18,6 +18,17 @@
             <mat-label>Price:</mat-label>
             <input matInput type="text" id="price" [(ngModel)]="price">
         </mat-form-field>
+
+        <label for="select-option">Select option</label>
+            <select id="select-option" [(ngModel)]="selectedOption">
+            <option value="Pizza">Pizza</option>
+            <option value="Salata">Saláta</option>
+            <option value="Teszta">Tészta</option>
+            <option value="Ital">Ital</option>
+            <option value="Desszert">Desszert</option>
+            <option value="Piadina">Piadina</option>
+            <option value="Leves">Leves</option>
+        </select>
       
         <button mat-raised-button color="primary" (click)="uploadButton()">Upload</button>
     </div>
@@ -34,7 +45,7 @@
 </div>
 
 <div id="output">
-    <h3>Pizza's</h3>
+    <h3>Menu</h3>
     <ul class="grid-container">
         <li *ngFor="let data of uploadedData">
             <img [src]="data.file" alt="Uploaded Image">

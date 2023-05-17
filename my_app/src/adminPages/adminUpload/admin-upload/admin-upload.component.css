@@ -39,3 +39,11 @@ li{
 h3{
     margin-left: 40px;
 }
+
+label{
+    margin: 5px;
+}
+
+button{
+    margin-top: 5px;
+}
