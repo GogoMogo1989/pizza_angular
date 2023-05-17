@@ -21,14 +21,14 @@
 
         <label for="select-option">Select option</label>
             <select id="select-option" [(ngModel)]="selectedOption">
-            <option value="Pizza">Pizza</option>
-            <option value="Salata">Saláta</option>
-            <option value="Teszta">Tészta</option>
-            <option value="Ital">Ital</option>
-            <option value="Desszert">Desszert</option>
-            <option value="Piadina">Piadina</option>
-            <option value="Leves">Leves</option>
-        </select>
+                <option value="Pizza">Pizza</option>
+                <option value="Salata">Saláta</option>
+                <option value="Teszta">Tészta</option>
+                <option value="Ital">Ital</option>
+                <option value="Desszert">Desszert</option>
+                <option value="Piadina">Piadina</option>
+                <option value="Leves">Leves</option>
+            </select>
       
         <button mat-raised-button color="primary" (click)="uploadButton()">Upload</button>
     </div>
@@ -37,9 +37,20 @@
     <div id="clear">
         <mat-form-field appearance="fill">
             <mat-label>Search:</mat-label>
-            <input matInput type="text" id="search" [(ngModel)]="searchTerm" (input)="filterData()">
+            <input matInput type="text" id="search" [(ngModel)]="searchTerm">
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="clearSearch()">Clear</button>
+        <label for="select-option">Select option</label>
+        <select id="select-option2" [(ngModel)]="selectedOption2">
+            <option value=""></option>
+            <option value="Pizza">Pizza</option>
+            <option value="Salata">Saláta</option>
+            <option value="Teszta">Tészta</option>
+            <option value="Ital">Ital</option>
+            <option value="Desszert">Desszert</option>
+            <option value="Piadina">Piadina</option>
+            <option value="Leves">Leves</option>
+        </select>
+        <button mat-raised-button color="primary" (click)="filterData()">Clear</button>
     </div>
 
 </div>

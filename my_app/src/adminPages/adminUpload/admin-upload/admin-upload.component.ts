@@ -16,6 +16,7 @@ export class AdminUploadComponent implements OnInit {
   searchTerm: string = '';
   originalData: any[] = []; 
   selectedOption: string|null = null;
+  selectedOption2: string|null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -94,18 +95,14 @@ export class AdminUploadComponent implements OnInit {
 
   
   filterData() {
-    if (this.searchTerm.trim() === '') { //Ellenőrizzük, hogy a searchterm értéke üres, vagy csak szóközt tartlamazza-e
-      this.uploadedData = [...this.originalData]; //Ha igen, akkor az uploadedData-ba a másolatot töltjük be róla
-    } else { //Ha nem üres a searchTerm
-      this.uploadedData = this.originalData.filter(data => //Akkor szűrünk a névre.
-        data.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    if(this.searchTerm === "" && this.selectedOption2 === ""){
+      this.fetchData()
+    }else{
+      this.uploadedData = this.originalData.filter(data => 
+        data.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
+        (data.option && data.option.toLowerCase().includes(this.selectedOption2?.toLowerCase()))
       ); 
     }
-  }
-
-  clearSearch() { //gomb megnyomásával resetelünk
-    this.searchTerm = '';
-    this.filterData(); 
   }
  
 }
