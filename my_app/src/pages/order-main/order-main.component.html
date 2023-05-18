@@ -1,5 +1,5 @@
 <header>
-    <app-toolbar></app-toolbar>
+    <app-toolbar [orderDataLength]="orderDataLength"></app-toolbar>
 </header>
 <mat-toolbar class="toolbar">
         <button mat-button class="button" (click)="scrollTo(pizzas)">
@@ -37,11 +37,11 @@
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.name }}</p>
-                        <p>{{ data.component }}</p>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
                         <div class="orderbutton">
-                            <button mat-raised-button >
-                                <mat-icon>add_box</mat-icon>
+                            <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                                <p>Kosárba!</p>
                             </button>
                         </div>
                     </div>
@@ -60,9 +60,11 @@
                         <p> {{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.name }}</p>
-                        <p>{{ data.component }}</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
                     </div>
                 </div>
             </li>
@@ -79,9 +81,11 @@
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.name }}</p>
-                        <p>{{ data.component }}</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
                     </div>
                 </div>
             </li>
@@ -98,10 +102,12 @@
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        
-                        <p>{{ data.name }}</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
-                    </div>    
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <<button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
+                    </div>  
                 </div>
             </li>
         </ul>
@@ -114,12 +120,14 @@
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
-                        <p> {{ data.price }} Ft</p>           
+                        <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.name }}</p>
-                        <p>{{ data.component }}</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
                     </div>
                 </div>
             </li>
@@ -133,12 +141,14 @@
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
-                        <p>{{ data.name }}</p>
+                        <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.component }}</p>
-                        <p>{{ data.price }} Ft</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
                     </div>
                 </div>
             </li>
@@ -152,12 +162,14 @@
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
-                        <p>{{ data.name }}</p>
+                        <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
-                        <p>{{ data.component }}</p>
-                        <p>{{ data.price }} Ft</p>
-                        <button mat-raised-button color="primary" >Törlés</button>
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <p>Kosárba!</p>
+                        </button>
                     </div>
                 </div>
             </li>

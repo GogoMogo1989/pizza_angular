@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -15,6 +15,8 @@ export class OrderMainComponent implements OnInit {
   soupsData:any[] = [];
   pastasData:any[] = [];
   error: string = '';
+  orderData: any[] = [];
+  orderDataLength: number = 0;
 
   scrollTo(element: HTMLElement): void {
       element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
@@ -44,6 +46,22 @@ export class OrderMainComponent implements OnInit {
     );
   }
 
+  saveToCart(name: string, component: string, image: string, price: string){
+    const newItem = {
+      name: name,
+      component: component,
+      file: image,
+      price: price
+    };
+    this.orderData.push(newItem);
+    this.calculateOrderDataLength()
+    console.log(this.orderData);
+  }
+
+  calculateOrderDataLength() {
+    this.orderDataLength = this.orderData.length;
+    console.log(this.orderDataLength)
+  }
 
 
 }

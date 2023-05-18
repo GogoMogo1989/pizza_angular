@@ -12,7 +12,10 @@
             <span routerLink="/restaurant">Éttermeink</span>
         </button>
     </div>
-    <button class="basket-icon" mat-icon-button routerLink="/basket">
-        <mat-icon>add_shopping_cart</mat-icon>
-    </button>
+    <div class="basket-icon-orderLength">
+        <button class="basket-icon" mat-icon-button routerLink="/basket">
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+        <p>{{orderDataLength}}</p>
+    </div>
 </mat-toolbar>

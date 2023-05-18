@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-
+  @Input() orderDataLength: number = 0;
 }

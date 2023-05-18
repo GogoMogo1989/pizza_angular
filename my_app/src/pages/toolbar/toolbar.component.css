@@ -42,3 +42,10 @@
     color: #d81919;
 }
 
+.basket-icon-orderLength{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color:#d81919
+}
+
