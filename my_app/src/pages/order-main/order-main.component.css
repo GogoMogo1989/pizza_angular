@@ -24,10 +24,14 @@
     grid-gap: 10px;
 }
 
-#orderpizza {
-    margin-top: 180px;
-    width: 1000px;
+#main{
     background-color: #fefbfb;
+}
+
+#order {
+    margin-top: 180px;
+    width: 100%;
+    
 }
 
 #orderCards {
