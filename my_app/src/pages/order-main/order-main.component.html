@@ -25,5 +25,105 @@
         </button>
 </mat-toolbar>
 
+<div id="orderpizza">
+    <h3>Pizzák</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of pizzasData">
+            <div id="orderCards">
+                <div id="image-price">
+                    <img [src]="data.file" alt="Image">
+                    <p>{{ data.price }} Ft</p>
+                </div>
+                <div id="name-component-button">
+                    <p>{{ data.name }}</p>
+                    <p>{{ data.component }}</p>
+                    <button mat-raised-button color="primary" >Törlés</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div id="orderpiadinas">
+    <h3>Piadínák</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of piadinasData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>
+
+<div id="orderpastas">
+    <h3>Tészták</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of pastasData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>
   
+<div id="ordersalads">
+    <h3>Saláták</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of saladsData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>
   
+<div id="ordersoups">
+    <h3>Levesek</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of soupsData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>
+
+<div id="orderdeserts">
+    <h3>Deszertek</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of dessertsData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>
+
+<div id="orderdrink">
+    <h3>Pizzák</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of drinksData">
+            <img [src]="data.file" alt="Image">
+            <p>Name: {{ data.name }}</p>
+            <p>Component: {{ data.component }}</p>
+            <p>Price: {{ data.price }} Ft</p>
+
+            <button mat-raised-button color="primary" >Törlés</button>
+        </li>
+    </ul>
+</div>

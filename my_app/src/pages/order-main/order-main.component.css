@@ -1,6 +1,6 @@
-.toolbar{
-    margin-top:100px;
-    background-color:#d81919;
+.toolbar {
+    margin-top: 100px;
+    background-color: #d81919;
     height: 60px;
     color: white;
     display: flex;
@@ -10,10 +10,68 @@
     z-index: 1000;
 }
 
-.toolbar button :hover{
+.toolbar button:hover {
     color: rgb(240, 240, 18);
 }
 
-.toolbar button{
+.toolbar button {
     font-size: 18px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+#orderpizza {
+    margin-top: 180px;
+    width: 1000px;
+    background-color: #fefbfb;
+}
+
+#orderCards {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#image-price img {
+    width: 200px;
+}
+
+#image-price p {
+    background-color: #d81919;
+    height: 40px;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+li {
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#name-component-button {
+    display: flex;
+    flex-direction: column;
+}
+
+#name {
+    align-self: flex-start;
+}
+
+#component {
+    align-self: center;
+}
+
+#name-component-button button {
+    align-self: flex-end;
+    width: 200px;
 }
