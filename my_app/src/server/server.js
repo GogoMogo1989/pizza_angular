@@ -49,6 +49,8 @@ const dataSchema = new mongoose.Schema({
     }
   });
 
+
+//Adatok feltöltése
 const DataModel = mongoose.model('Data', dataSchema);
 
 app.post('/api/data', (req, res) => {

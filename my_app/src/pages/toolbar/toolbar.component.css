@@ -7,20 +7,24 @@
     justify-content: space-between;
     background-color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100px;
 }
 
 .image-container {
     display: flex;
     align-items: center;
+    height: 100px;
 }
 
 .image-container img {
     object-fit: cover;
-    width: 120px;
+    width: 200px;
+    height: 80px;
 }
 
 .image-container button {
-    width: 150px;
+    width: 250px;
+    height: 100px;
 }
 
 .button-container {
@@ -31,8 +35,10 @@
 .button-container button {
     flex-shrink: 0;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .button-container button :hover{
     color: #d81919;
 }
+
