@@ -25,6 +25,7 @@ export class OrderMainComponent implements OnInit {
   ngOnInit() {
     this.loadData()
   }
+
   loadData() {
     this.http.get<any[]>('http://localhost:3000/api/data').subscribe(
       (data) => {
@@ -35,7 +36,6 @@ export class OrderMainComponent implements OnInit {
         this.saladsData = data.filter((item) => item.option === 'Salata');
         this.soupsData = data.filter((item) => item.option === 'Leves');
         this.pastasData = data.filter((item) => item.option === 'Teszta');
-        console.log(this.pastasData)
       },
       (error) => {
         this.error = 'Hiba történt az adatok betöltése közben.';
