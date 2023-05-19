@@ -1,4 +1,4 @@
-import { Component, OnInit,} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -17,6 +17,7 @@ export class OrderMainComponent implements OnInit {
   error: string = '';
   orderData: any[] = [];
   orderDataLength: number = 0;
+
 
   scrollTo(element: HTMLElement): void {
       element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
@@ -55,6 +56,7 @@ export class OrderMainComponent implements OnInit {
     };
     this.orderData.push(newItem);
     this.calculateOrderDataLength()
+    this.saveOrderDataToLocalStorage()
     console.log(this.orderData);
   }
 
@@ -63,5 +65,12 @@ export class OrderMainComponent implements OnInit {
     console.log(this.orderDataLength)
   }
 
+  saveCalculateOrderDataLengt(){
+    localStorage.setItem('orderDataLength', JSON.stringify(this.orderDataLength))
+  }
+
+  saveOrderDataToLocalStorage() {
+    localStorage.setItem('orderData', JSON.stringify(this.orderData));
+  }
 
 }

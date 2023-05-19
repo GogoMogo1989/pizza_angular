@@ -1,4 +1,71 @@
 <header>
     <app-toolbar></app-toolbar>
 </header>
-<p>basket works!</p>
+
+<div id="main">
+    <div id="order" #pizzas>
+        <h3 class="pizzas">Rendelésed</h3>
+        <ul class="grid-container">
+            <li *ngFor="let data of storedOrderData">
+                <div id="orderCards">
+                    <div id="image-price">
+                        <img [src]="data.file" alt="Image">
+                        <p>{{ data.price }} Ft</p>
+                    </div>
+                    <div id="name-component-button">
+                        <p class="p">{{ data.name }}</p>
+                        <p class="p2">{{ data.component }}</p>
+                        <div class="deletebutton">
+                            <button mat-raised-button (click)="removeFromCart(data)">
+                                <p>Törlés</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="total">
+        <p>Összesen: {{totalPrice}} Ft</p>
+    </div>
+
+    <div class="mat-card">
+        <div id="orderForm">
+            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                <div class="form-field">
+                    <mat-form-field>
+                        <input matInput placeholder="Név" formControlName="name" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Város" formControlName="city" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Irányítószám" formControlName="zip" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Utca" formControlName="street" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-field">
+                    <mat-form-field>
+                        <input matInput placeholder="Házszám" formControlName="houseNumber" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Emelet" formControlName="floor" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Ajtó" formControlName="door" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Telefonszám" formControlName="phoneNumber" required>
+                    </mat-form-field>
+                </div>
+                <div class="submitButton">
+                    <button mat-raised-button type="submit">Megrendelés elküldése</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  
