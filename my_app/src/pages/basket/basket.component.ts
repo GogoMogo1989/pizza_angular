@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-basket',
@@ -11,7 +12,7 @@ export class BasketComponent {
   totalPrice: number = 0;
   orderForm: FormGroup;
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
     const storedData = localStorage.getItem('orderData');
     if (storedData) {
@@ -51,16 +52,26 @@ export class BasketComponent {
   }
 
   onSubmit() {
-    if (this.orderForm.valid) {
+    if (this.orderForm.valid && this.storedOrderData.length > 0) {
       const orderData = {
-        file: this.storedOrderData[0].file,
-        component: this.storedOrderData[0].component,
-        name: this.storedOrderData[0].name,
-        totalPrice: this.totalPrice,
-        formValues: this.orderForm.value
+        orderData: this.storedOrderData.map((order) => ({
+          file: order.file,
+          component: order.component,
+          name: order.name,
+          totalPrice: this.totalPrice,
+          formValues: this.orderForm.value
+        }))
       };
-      console.log(orderData);
+  
+      this.http.post('http://localhost:3000/api/data/order', orderData)
+        .subscribe(
+          response => {
+            console.log('Adatok feltöltése sikeres!', response);
+          },
+          error => {
+            console.error('Adatok feltöltése sikertelen.', error);
+          }
+        );
     }
   }
-
 }

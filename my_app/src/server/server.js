@@ -49,6 +49,13 @@ const dataSchema = new mongoose.Schema({
     }
   });
 
+//Basket komponens álltal feltöltött adatok sémája
+const orderSchema = new mongoose.Schema({
+    orderData: {
+      type: Object,
+      required: true
+    }
+  });
 
 //Adatok feltöltése
 const DataModel = mongoose.model('Data', dataSchema);
@@ -100,6 +107,31 @@ app.delete('/api/data/:id', (req, res) => {
       res.status(500).send('Hiba az adat törlésekor!');
     });
 });
+
+//Rendelt adatok feltöltése
+const orderModel = mongoose.model('Order', orderSchema)
+
+app.post('/api/data/order', (req, res) => {
+  if (!req.body || !req.body.orderData) {
+    res.status(400).send('Nincs megfelelő adat az adatokban!');
+    return;
+  }
+
+  const orderData = req.body.orderData;
+
+  const order = new orderModel({
+    orderData: orderData
+  });
+
+  order.save().then(() => {
+    console.log('Az adatok mentése sikeres volt!');
+    res.status(200).send('Adatok sikeresen fogadva és mentve a szerveren.');
+  }).catch((err) => {
+    console.log('Hiba az adatok mentésekor:', err);
+    res.status(500).send('Hiba az adatok mentésekor!');
+  });
+});
+
 
 const port = process.env.PORT || 3000;
 
