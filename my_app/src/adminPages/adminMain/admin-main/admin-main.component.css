@@ -1,0 +1,21 @@
+
+li{
+    list-style-type: none;
+    padding: 10px;
+    background-color: rgb(246, 246, 246);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 10px;
+}
+
+h3{
+    margin-top: 80px;
+    margin-left: 40px;
+}
+
+button{
+    margin-top: 5px;
+}

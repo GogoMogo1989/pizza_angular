@@ -7,15 +7,15 @@
     <h3>Rendelések</h3>
     <ul class="grid-container">
         <li *ngFor="let data of datas">
-            <p>{{data.allNames}}</p>
-            <p>{{data.city}}</p>
-            <p>{{data.name}}</p>
-            <p>{{data.zip}}</p>
-            <p>{{data.street}}</p>
-            <p>{{data.houseNumber}}</p>
-            <p>{{data.floor}}</p>
-            <p>{{data.door}}</p>
-            <p>{{data.phoneNumber}}</p>
+            <p>Rendelés(ek):{{data.allNames}}</p>
+            <p>Név:{{data.name}}</p>
+            <p>Város:{{data.city}}</p>
+            <p>Irányítószám:{{data.zip}}</p>
+            <p>Utca:{{data.street}}</p>
+            <p>Házszám:{{data.houseNumber}}</p>
+            <p>Emelet:{{data.floor}}</p>
+            <p>Ajtó:{{data.door}}</p>
+            <p>Telefonszám:{{data.phoneNumber}}</p>
             <button mat-raised-button >Kész!</button>
         </li>
     </ul>
