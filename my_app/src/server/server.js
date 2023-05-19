@@ -51,8 +51,44 @@ const dataSchema = new mongoose.Schema({
 
 //Basket komponens álltal feltöltött adatok sémája
 const orderSchema = new mongoose.Schema({
-    orderData: {
-      type: Object,
+    totalPrice: {
+      type: Number,
+      required: true
+    },
+    allNames:{
+      type: String,
+      required: true
+    },
+    name:{
+      type: String,
+      required: true
+    },
+    city:{
+      type: String,
+      required: true
+    },
+    street:{
+      type: String,
+      required: true
+    },
+    houseNumber:{
+      type: String,
+      required: true
+    },
+    floor:{
+      type: String,
+      required: true
+    },
+    door:{
+      type: String,
+      required: true
+    },
+    phoneNumber:{
+      type: String,
+      required: true
+    },
+    zip:{
+      type: String,
       required: true
     }
   });
@@ -112,15 +148,17 @@ app.delete('/api/data/:id', (req, res) => {
 const OrderModel = mongoose.model('Order', orderSchema)
 
 app.post('/api/data/order', (req, res) => {
-  if (!req.body || !req.body.orderData) {
-    res.status(400).send('Nincs megfelelő adat az adatokban!');
-    return;
-  }
-
-  const orderData = req.body.orderData;
-
   const order = new OrderModel({
-    orderData: orderData
+    totalPrice: req.body.totalPrice,
+    allNames: req.body.allNames,
+    name: req.body.name,
+    city: req.body.city,
+    zip: req.body.zip,
+    street: req.body.street,
+    houseNumber: req.body.houseNumber,
+    floor: req.body.floor,
+    door: req.body.door,
+    phoneNumber: req.body.phoneNumber,
   });
 
   order.save().then(() => {

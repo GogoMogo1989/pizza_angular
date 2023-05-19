@@ -1,4 +1,23 @@
 <header>
     <app-admin-toolbar></app-admin-toolbar>
 </header>
-<p>admin-main works!</p>
+
+
+<div id="output">
+    <h3>Rendelések</h3>
+    <ul class="grid-container">
+        <li *ngFor="let data of datas">
+            <p>{{data.allNames}}</p>
+            <p>{{data.city}}</p>
+            <p>{{data.name}}</p>
+            <p>{{data.zip}}</p>
+            <p>{{data.street}}</p>
+            <p>{{data.houseNumber}}</p>
+            <p>{{data.floor}}</p>
+            <p>{{data.door}}</p>
+            <p>{{data.phoneNumber}}</p>
+            <button mat-raised-button >Kész!</button>
+        </li>
+    </ul>
+</div>
+
