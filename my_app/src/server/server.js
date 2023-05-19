@@ -109,7 +109,7 @@ app.delete('/api/data/:id', (req, res) => {
 });
 
 //Rendelt adatok feltöltése
-const orderModel = mongoose.model('Order', orderSchema)
+const OrderModel = mongoose.model('Order', orderSchema)
 
 app.post('/api/data/order', (req, res) => {
   if (!req.body || !req.body.orderData) {
@@ -119,7 +119,7 @@ app.post('/api/data/order', (req, res) => {
 
   const orderData = req.body.orderData;
 
-  const order = new orderModel({
+  const order = new OrderModel({
     orderData: orderData
   });
 
@@ -129,6 +129,17 @@ app.post('/api/data/order', (req, res) => {
   }).catch((err) => {
     console.log('Hiba az adatok mentésekor:', err);
     res.status(500).send('Hiba az adatok mentésekor!');
+  });
+});
+
+//Rendelt adatok lekérdezése 
+app.get('/api/data/order', (req, res) => {
+  OrderModel.find({}).then((data) => {
+    console.log('Az adatok lekérdezése sikeres volt!')
+    res.send(data);
+  }).catch((err) => {
+    console.log('Hiba az adatok lekérdezésekor:', err);
+    res.status(500).send('Hiba az adatok lekérdezésekor!');
   });
 });
 

@@ -67,9 +67,19 @@ export class BasketComponent {
         .subscribe(
           response => {
             console.log('Adatok feltöltése sikeres!', response);
+            localStorage.removeItem('orderData');
+            this.storedOrderData = [];
+            this.orderForm.reset();
+            this.totalPrice = 0;
+            alert('Sikeres rendelés!');
           },
           error => {
             console.error('Adatok feltöltése sikertelen.', error);
+            localStorage.removeItem('orderData');
+            this.storedOrderData = [];
+            this.orderForm.reset();
+            this.totalPrice = 0;
+            alert('Sikeres rendelés!');
           }
         );
     }
