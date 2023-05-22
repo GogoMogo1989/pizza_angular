@@ -16,7 +16,10 @@
             <p>Emelet:{{data.floor}}</p>
             <p>Ajtó:{{data.door}}</p>
             <p>Telefonszám:{{data.phoneNumber}}</p>
-            <button mat-raised-button >Kész!</button>
+            <div class="buttonClass">
+                <mat-checkbox color="primary" >Kész!</mat-checkbox>
+                <button mat-raised-button (click)="deleteButton(data._id)">Törlés</button>
+            </div>
         </li>
     </ul>
 </div>

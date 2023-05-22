@@ -93,6 +93,19 @@ const orderSchema = new mongoose.Schema({
     }
   });
 
+
+//Regisztráció és a hozzátartozó séma
+const userSchema = new mongoose.Schema({
+  userName:{
+    type: String,
+    required: true
+  },
+  password:{
+    type: String,
+    required: true
+  },
+});
+
 //Adatok feltöltése
 const DataModel = mongoose.model('Data', dataSchema);
 
@@ -179,6 +192,60 @@ app.get('/api/data/order', (req, res) => {
     console.log('Hiba az adatok lekérdezésekor:', err);
     res.status(500).send('Hiba az adatok lekérdezésekor!');
   });
+});
+
+//Rendelt adatok törlése
+app.delete('/api/data/order/:id', (req, res) => {
+  const id = req.params.id;
+  OrderModel.findByIdAndDelete(id)
+    .then(() => {
+      console.log('Az adat törlése sikeres volt!');
+      res.status(200).json({ message: 'Az adat törlése sikeres volt!' });
+    })
+    .catch((err) => {
+      console.log('Hiba az adat törlésekor:', err);
+      res.status(500).send('Hiba az adat törlésekor!');
+    });
+});
+
+//Regisztráció
+const User = mongoose.model('User', userSchema);
+
+app.post('/admin/signup', (req, res) => {
+  const { userName, password} = req.body;
+
+  const newUser = new User({ userName, password });
+
+  newUser.save()
+    .then(() => {
+      console.log('Felhasználó mentve!');
+      res.status(200).json({ message: 'Felhasználó mentve!' });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Hiba történt a mentés során!' });
+    });
+});
+
+//Bejelentkezés
+app.post('/admin/login', (req, res) => {
+  const {userName, password} = req.body;
+
+  User.findOne({ userName: userName, password: password})
+    .then(user => {
+      if (!user) {
+        console.log('Hibás felhasználó név vagy jelszó!');
+        res.status(401).json({ message: 'Hibás felhasználó név vagy jelszó!' });
+      } else {
+        console.log('Bejelentkezés sikeres!');
+        console.log('A felhasználó _id-je:', user._id);
+        res.status(200).json({ message: 'Bejelentkezés sikeres!', userId: user._id});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Hiba történt a bejelentkezés során!' });
+    });
 });
 
 

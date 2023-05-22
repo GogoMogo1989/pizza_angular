@@ -23,6 +23,8 @@ import { LandingPageComponent } from 'src/pages/landing-page/landing-page.compon
 import { OrderMainComponent } from 'src/pages/order-main/order-main.component';
 import { BasketComponent } from 'src/pages/basket/basket.component';
 import { RestaurantComponent } from 'src/pages/restaurant/restaurant.component';
+import { AdminRegistrationComponent } from 'src/adminPages/admin-registration/admin-registration.component';
+import { AdminLoginComponent } from 'src/adminPages/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RestaurantComponent } from 'src/pages/restaurant/restaurant.component';
     LandingPageComponent,
     OrderMainComponent,
     BasketComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    AdminRegistrationComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

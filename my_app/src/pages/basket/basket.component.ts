@@ -100,6 +100,11 @@ export class BasketComponent {
         },
         error => {
           console.error('Adatok feltöltése sikertelen.', error);
+          this.storedOrderData = [];
+          this.orderForm.reset(); 
+          this.totalPrice = 0;
+          localStorage.removeItem('orderData');
+          alert("Sikeres Rendelés!");
         }
       );
  }

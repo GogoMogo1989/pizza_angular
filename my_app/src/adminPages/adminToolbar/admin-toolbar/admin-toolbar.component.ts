@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuard } from 'src/authGuard/authGuard';
 
 @Component({
   selector: 'app-admin-toolbar',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-toolbar.component.css']
 })
 export class AdminToolbarComponent {
+
+  constructor(private authGuard: AuthGuard) {}
+
+  logout() {
+    this.authGuard.logout();
+  }
 
 }

@@ -1,0 +1,21 @@
+<header>
+    <app-admin-toolbar></app-admin-toolbar>
+</header>
+<form (ngSubmit)="onSubmit()" class="formClass">
+    <mat-form-field appearance="outline">
+      <mat-label>User Name:</mat-label>
+      <input matInput type="text" id="userName" name="userName" [(ngModel)]="userName">
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Password:</mat-label>
+      <input matInput type="password" id="password" name="password" [(ngModel)]="password">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Secret Key:</mat-label>
+        <input matInput type="secretKey" id="secretKey" name="secretKey" [(ngModel)]="secretKey">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Registration</button>
+  </form>

@@ -11,16 +11,6 @@ export class AdminMainComponent {
 
   error: string = '';
   datas: any[] = []
-/*   allNames: string = '';
-  name: string = '';
-  city: string = '';
-  zip: string = '';
-  street: string = '';
-  houseNumber: string = '';
-  floor: string = '';
-  door: string = '';
-  phoneNumber: string = '';
-  _id: string= "" */
  
   constructor(private http: HttpClient) {}
 
@@ -51,7 +41,20 @@ export class AdminMainComponent {
       }
     );
   }
+
   
-  
+  deleteButton(id: string) {
+    if (confirm('Biztosan törölni szeretnéd az adatot?')) {
+      this.http.delete(`http://localhost:3000/api/data/order/${id}`).subscribe(
+        response => {
+          console.log('Az adat törlése sikeres volt!', response);
+          this.loadData()
+        },
+        error => {
+          console.error('Az adat törlése sikertelen.', error);
+        }
+      );
+    }
+  }
 
 }
