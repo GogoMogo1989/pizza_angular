@@ -231,15 +231,14 @@ app.post('/admin/signup', (req, res) => {
 app.post('/admin/login', (req, res) => {
   const {userName, password} = req.body;
 
-  User.findOne({ email: email, password: password})
+  User.findOne({ userName: userName, password: password})
     .then(user => {
       if (!user) {
         console.log('Hibás felhasználó név vagy jelszó!');
         res.status(401).json({ message: 'Hibás felhasználó név vagy jelszó!' });
       } else {
         console.log('Bejelentkezés sikeres!');
-        console.log('A felhasználó _id-je:', user._id);
-        res.status(200).json({ message: 'Bejelentkezés sikeres!', userId: user._id});
+        res.status(200).json({ message: 'Bejelentkezés sikeres!'});
       }
     })
     .catch(err => {
