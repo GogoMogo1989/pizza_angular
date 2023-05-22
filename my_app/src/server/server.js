@@ -231,7 +231,7 @@ app.post('/admin/signup', (req, res) => {
 app.post('/admin/login', (req, res) => {
   const {userName, password} = req.body;
 
-  User.findOne({ userName: userName, password: password})
+  User.findOne({ email: email, password: password})
     .then(user => {
       if (!user) {
         console.log('Hibás felhasználó név vagy jelszó!');
