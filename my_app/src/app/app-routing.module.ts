@@ -8,6 +8,8 @@ import { BasketComponent } from 'src/pages/basket/basket.component';
 import { RestaurantComponent } from 'src/pages/restaurant/restaurant.component';
 import { AdminRegistrationComponent } from 'src/adminPages/admin-registration/admin-registration.component';
 import { AdminLoginComponent } from 'src/adminPages/admin-login/admin-login.component';
+import { RegistrationComponent } from 'src/pages/registration/registration.component';
+import { LoginComponent } from 'src/pages/login/login.component';
 
 import { AuthGuard } from 'src/authGuard/authGuard';
 
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'landingpage', component: LandingPageComponent},
   {path: 'basket', component: BasketComponent},
   {path: 'restaurant', component: RestaurantComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

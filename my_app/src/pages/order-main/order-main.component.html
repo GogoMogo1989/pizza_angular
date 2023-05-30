@@ -5,20 +5,20 @@
         <button mat-button class="button" (click)="scrollTo(pizzas)">
             <span>Pizzák</span>
         </button>
+        <button mat-button class="button" (click)="scrollTo(piadinas)">
+            <span >Piadinák</span>
+        </button>
+        <button mat-button class="button" (click)="scrollTo(pastas)">
+            <span>Tészták</span>
+        </button>
+        <button mat-button class="button" (click)="scrollTo(salads)">
+            <span>Saláták</span>
+        </button>
         <button mat-button class="button" (click)="scrollTo(soups)">
             <span>Levesek</span>
         </button>
         <button mat-button class="button" (click)="scrollTo(desserts)">
             <span >Desszertek</span>
-        </button>
-        <button mat-button class="button" (click)="scrollTo(pastas)">
-            <span>Tészták</span>
-        </button>
-        <button mat-button class="button" (click)="scrollTo(piadinas)">
-            <span >Piadinák</span>
-        </button>
-        <button mat-button class="button" (click)="scrollTo(salads)">
-            <span>Saláták</span>
         </button>
         <button mat-button class="button" (click)="scrollTo(drinks)">
             <span>Italok</span>
@@ -166,7 +166,7 @@
                     </div>
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
-                        <p class="p2">{{ data.component }}</p>
+                        <p class="p2">{{ data.component }} l</p>
                         <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
                             <p>Kosárba!</p>
                         </button>

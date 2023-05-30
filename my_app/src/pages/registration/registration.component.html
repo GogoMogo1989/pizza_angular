@@ -1,0 +1,79 @@
+<header>
+    <app-toolbar></app-toolbar>
+</header>
+
+<form [formGroup]="signupForm" class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="user@user.com">
+      <mat-hint>Csak helyes email formátum!</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Írd be az email címed!
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Az email <strong>Helytelen email formátum.</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Jelszó</mat-label>
+      <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+             placeholder="Jelszó">
+      <mat-hint>Minimum 8 karakter, kis betűt, nagy betűt, és számot kell tartlamznia!</mat-hint>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        A jelszó: <strong>Minimum 8 karakter, kis betűt, nagy betűt, és számot kell tartlamznia!</strong>
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+        Minimum 8 karakter, kis betűt, nagy betűt, és számot kell tartlamznia!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Jelszó újra</mat-label>
+      <input type="password" matInput [formControl]="confirmPasswordFormControl" [errorStateMatcher]="matcher"
+             placeholder="Jelszó újra">
+      <mat-hint>Jelszónak egyeznie kell!</mat-hint>
+      <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
+        Megerősített jelszó: <strong>eggyeznie kell a jelszavaknak!</strong>
+      </mat-error>
+      <mat-error *ngIf="confirmPasswordFormControl.hasError('passwordMatch')">
+        Jelszónak egyeznie kell!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Név</mat-label>
+        <input type="text" color="secondary" matInput formControlName="name" placeholder="Név">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefonszám</mat-label>
+        <input type="tel" matInput formControlName="phoneNumber" placeholder="Telefonszám">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Város</mat-label>
+        <input type="text" matInput formControlName="city" placeholder="Város">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Irányítószám</mat-label>
+        <input type="text" matInput formControlName="zip" placeholder="Irányítószám">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Utca</mat-label>
+        <input type="text" matInput formControlName="street" placeholder="Utca">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Házszám</mat-label>
+        <input type="number" matInput formControlName="houseNumber" placeholder="Házszám">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Emelet</mat-label>
+        <input type="number" matInput formControlName="floor" placeholder="Emelet">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Ajtó</mat-label>
+        <input type="text" matInput formControlName="door" placeholder="Ajtó">
+      </mat-form-field>
+    <mat-checkbox labelPositon="after" class="example-margin" formControlName="checkboxFormControl">
+      Elfogadom a felhasználási feltételeket.
+    </mat-checkbox>
+    <button mat-raised-button  type="submit" [disabled]="!signupForm.valid || !signupForm.controls.checkboxFormControl.value">Submit</button>
+  </form>
+

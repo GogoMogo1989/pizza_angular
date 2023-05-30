@@ -106,6 +106,54 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+//Felhasználó regisztrációja
+const userSignupSchema = new mongoose.Schema({
+  email:{
+    type: String,
+    required: true
+  },
+  password:{
+    type: String,
+    required: true
+  },
+  checkboxFormControl:{
+    type: String,
+    required: true
+  },
+  name:{
+    type: String,
+    required: true
+  },
+  phoneNumber:{
+    type: String,
+    required: true
+  },
+  city:{
+    type: String,
+    required: true
+  },
+  zip:{
+    type: String,
+    required: true
+  },
+  street:{
+    type: String,
+    required: true
+  },
+  houseNumber:{
+    type: Number,
+    required: true
+  },
+  floor:{
+    type: Number,
+    required: true
+  },
+  door:{
+    type: String,
+    required: true
+  }
+});
+
 //Adatok feltöltése
 const DataModel = mongoose.model('Data', dataSchema);
 
@@ -208,7 +256,7 @@ app.delete('/api/data/order/:id', (req, res) => {
     });
 });
 
-//Regisztráció
+//Admin regisztráció
 const User = mongoose.model('User', userSchema);
 
 app.post('/admin/signup', (req, res) => {
@@ -244,6 +292,25 @@ app.post('/admin/login', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ message: 'Hiba történt a bejelentkezés során!' });
+    });
+});
+
+//Admin regisztráció
+const UserSignup = mongoose.model('UserSignupSchema', userSignupSchema);
+
+app.post('/user/signup', (req, res) => {
+  const { name, city, street, houseNumber, floor, door, phoneNumber, zip, email, checkboxFormControl, password} = req.body;
+
+  const newUser = new UserSignup({ name, city, street, houseNumber, floor, door, phoneNumber, zip, email, checkboxFormControl, password});
+
+  newUser.save()
+    .then(() => {
+      console.log('Felhasználó mentve!');
+      res.status(200).json({ message: 'Felhasználó mentve!' });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Hiba történt a mentés során!' });
     });
 });
 

@@ -44,7 +44,7 @@ export class AdminMainComponent {
 
   
   deleteButton(id: string) {
-    if (confirm('Biztosan törölni szeretnéd az adatot?')) {
+    if (confirm('Biztosan törölni szeretnéd a rendelést?')) {
       this.http.delete(`http://localhost:3000/api/data/order/${id}`).subscribe(
         response => {
           console.log('Az adat törlése sikeres volt!', response);
