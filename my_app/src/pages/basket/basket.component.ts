@@ -134,6 +134,8 @@ export class BasketComponent {
             door: currentUserData.door,
           }];
           this.orderForm.patchValue(this.loginUserData[0]);
+        } else {
+          alert("Kérlek jelentkezz be a cím betöltéséhez!")
         }
         console.log(this.loginUserData);
       },
