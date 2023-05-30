@@ -34,37 +34,40 @@
         <div id="orderForm">
             <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
                 <div class="form-field">
-                    <mat-form-field>
-                        <input matInput placeholder="Név" formControlName="name" required>
+                    <mat-form-field color="warn">
+                        <input matInput  placeholder="Név" formControlName="name"required >
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Város" formControlName="city" required>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Irányítószám" formControlName="zip" required>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Utca" formControlName="street" required>
                     </mat-form-field>
                 </div>
                 <div class="form-field">
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Házszám" formControlName="houseNumber" required>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Emelet" formControlName="floor" required>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Ajtó" formControlName="door" required>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field color="warn">
                         <input matInput placeholder="Telefonszám" formControlName="phoneNumber" required>
                     </mat-form-field>
                 </div>
-                <div class="submitButton">
-                    <button mat-raised-button type="submit">Megrendelés elküldése</button>
-                </div>
+                    <div class="submitButton">
+                        <button mat-raised-button type="submit">Megrendelés elküldése</button>
+                    </div>
             </form>
+            <div class="loadButton" (click)="loadData()">
+                <button mat-raised-button>Cím betöltése</button>
+            </div>
         </div>
     </div>
 </div>

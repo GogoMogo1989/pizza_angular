@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
+
 export class BasketComponent {
+
   storedOrderData: any[] = [];
   totalPrice: number = 0;
   orderForm: FormGroup;
-  allNames: string = '';
+  allNames: string = ''
   name: string = '';
   city: string = '';
   zip: string = '';
@@ -20,15 +22,17 @@ export class BasketComponent {
   floor: string = '';
   door: string = '';
   phoneNumber: string = '';
+  loginUserData: any[] = [];
+  error: string= "";
 
   constructor(private http: HttpClient) {
 
     const storedData = localStorage.getItem('orderData');
-    if (storedData) {
-      this.storedOrderData = JSON.parse(storedData);
-      this.calculateTotalPrice();
-      this.getAllNames();
-    }
+      if (storedData) {
+        this.storedOrderData = JSON.parse(storedData);
+        this.calculateTotalPrice();
+        this.getAllNames();
+      }
 
     this.orderForm = new FormGroup({
       name: new FormControl(''),
@@ -91,8 +95,6 @@ export class BasketComponent {
       phoneNumber: this.phoneNumber
     }
   
-    console.log(orderData)
-  
     this.http.post('http://localhost:3000/api/data/order', orderData)
       .subscribe(
         response => {
@@ -105,9 +107,42 @@ export class BasketComponent {
           this.totalPrice = 0;
           localStorage.removeItem('orderData');
           alert("Sikeres Rendelés!");
+          localStorage.removeItem('email')
         }
       );
- }
+  }
+
+  loadData() {
+    const currentUserEmail = localStorage.getItem('email');
   
+    this.http.get<any[]>('http://localhost:3000/user/data').subscribe(
+      (data) => {
+        const currentUserData = data.find((order) => order.email === currentUserEmail);
+  
+        if (currentUserData) {
+          this.loginUserData = [{
+            email: currentUserData.email,
+            password: currentUserData.password,
+            checkboxFormControl: currentUserData.checkboxFormControl,
+            name: currentUserData.name,
+            phoneNumber: currentUserData.phoneNumber,
+            city: currentUserData.city,
+            zip: currentUserData.zip,
+            street: currentUserData.street,
+            houseNumber: currentUserData.houseNumber,
+            floor: currentUserData.floor,
+            door: currentUserData.door,
+          }];
+          this.orderForm.patchValue(this.loginUserData[0]);
+        }
+        console.log(this.loginUserData);
+      },
+      (error) => {
+        this.error = 'Hiba történt az adatok betöltése közben.';
+        console.error(error);
+      }
+    );
+  }
+
 }
 

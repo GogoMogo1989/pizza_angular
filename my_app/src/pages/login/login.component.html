@@ -3,16 +3,16 @@
 </header>
 
 <form class="formClass">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" color="warn">
       <mat-label>Email cím:</mat-label>
       <input matInput type="text" id="email" name="email" [(ngModel)]="email">
     </mat-form-field>
     
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" color="warn">
       <mat-label>Jelszó:</mat-label>
       <input matInput type="password" id="password" name="password" [(ngModel)]="password">
     </mat-form-field>
   
     <button mat-raised-button type="submit" (click)="onSubmit()">Bejelentkezés</button>
-    <button mat-raised-button routerLink="/registration">Regisztráció</button>
+    <button mat-raised-button class="regButton" routerLink="/registration">Regisztráció</button>
 </form>

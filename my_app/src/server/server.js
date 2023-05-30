@@ -334,6 +334,17 @@ app.post('/user/login', (req, res) => {
     });
 });
 
+//Felhasználói adatok lekérdezése 
+app.get('/user/data', (req, res) => {
+  UserSignup.find({}).then((data) => {
+    console.log('Az adatok lekérdezése sikeres volt!')
+    res.send(data);
+  }).catch((err) => {
+    console.log('Hiba az adatok lekérdezésekor:', err);
+    res.status(500).send('Hiba az adatok lekérdezésekor!');
+  });
+});
+
 
 const port = process.env.PORT || 3000;
 

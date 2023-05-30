@@ -22,6 +22,8 @@ export class LoginComponent {
             console.log('Bejelentkezés sikeres!');
             alert('Sikeres belépés!')
             this.router.navigate(['/ordermain']);
+            localStorage.setItem('email', this.email)
+            console.log(localStorage.getItem('email'))
           } else {
             console.log('Hibás felhasználónév vagy jelszó!');
           }

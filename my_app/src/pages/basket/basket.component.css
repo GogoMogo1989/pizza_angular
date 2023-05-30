@@ -6,6 +6,8 @@
 
 #main{
     background-color: #fefbfb;
+    width: 100%;
+    height: 100vh
 }
 
 #order {
@@ -100,3 +102,10 @@ h3{
     display: flex;
     justify-content: center;
 }
+
+.loadButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+

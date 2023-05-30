@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
+import {  Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -17,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class RegistrationComponent {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   signupForm = new FormGroup({
     email: new FormControl('', [
@@ -66,6 +67,7 @@ export class RegistrationComponent {
       response => {
         console.log('Regisztráció sikeres:', response);
         alert('Sikeres regisztráció!')
+        this.router.navigate(['/login'])
       },
       error => {
         console.error('Regisztráció sikertelen:', error);
