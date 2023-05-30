@@ -275,7 +275,7 @@ app.post('/admin/signup', (req, res) => {
     });
 });
 
-//Bejelentkezés
+//Admin bejelentkezés
 app.post('/admin/login', (req, res) => {
   const {userName, password} = req.body;
 
@@ -295,7 +295,7 @@ app.post('/admin/login', (req, res) => {
     });
 });
 
-//Admin regisztráció
+//Felhasználó regisztráció
 const UserSignup = mongoose.model('UserSignupSchema', userSignupSchema);
 
 app.post('/user/signup', (req, res) => {
@@ -311,6 +311,26 @@ app.post('/user/signup', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ message: 'Hiba történt a mentés során!' });
+    });
+});
+
+//Felhasználó bejelentkezés
+app.post('/user/login', (req, res) => {
+  const {email, password} = req.body;
+
+  UserSignup.findOne({ email: email, password: password})
+    .then(user => {
+      if (!user) {
+        console.log('Hibás felhasználó név vagy jelszó!');
+        res.status(401).json({ message: 'Hibás felhasználó név vagy jelszó!' });
+      } else {
+        console.log('Bejelentkezés sikeres!');
+        res.status(200).json({ message: 'Bejelentkezés sikeres!'});
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: 'Hiba történt a bejelentkezés során!' });
     });
 });
 
