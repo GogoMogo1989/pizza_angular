@@ -20,6 +20,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    height:220px;
 }
 
 #image-price img {
@@ -82,6 +83,12 @@ h3{
 
 .p2{
     padding-left: 20px;
+}
+
+.p3{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .total{

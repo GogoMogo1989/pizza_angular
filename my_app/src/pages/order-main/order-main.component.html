@@ -50,7 +50,7 @@
                             <button class="plus-minusBtn" mat-raised-button (click)="plus(pizzasData, i)">
                                 <p class="p4">+</p>
                             </button>
-                            <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                                 <p>Kosárba!</p>
                             </button>
                         </div>
@@ -82,7 +82,7 @@
                           <button class="plus-minusBtn" mat-raised-button (click)="plus(piadinasData, i)">
                               <p class="p4">+</p>
                           </button>
-                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                               <p>Kosárba!</p>
                           </button>
                       </div>
@@ -114,7 +114,7 @@
                           <button class="plus-minusBtn" mat-raised-button (click)="plus(pastasData, i)">
                               <p class="p4">+</p>
                           </button>
-                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                               <p>Kosárba!</p>
                           </button>
                       </div>
@@ -146,7 +146,7 @@
                           <button class="plus-minusBtn" mat-raised-button (click)="plus(saladsData, i)">
                               <p class="p4">+</p>
                           </button>
-                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                               <p>Kosárba!</p>
                           </button>
                       </div>
@@ -178,7 +178,7 @@
                           <button class="plus-minusBtn" mat-raised-button (click)="plus(soupsData, i)">
                               <p class="p4">+</p>
                           </button>
-                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                               <p>Kosárba!</p>
                           </button>
                       </div>
@@ -210,7 +210,7 @@
                           <button class="plus-minusBtn" mat-raised-button (click)="plus(dessertsData, i)">
                               <p class="p4">+</p>
                           </button>
-                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                               <p>Kosárba!</p>
                           </button>
                       </div>
@@ -225,24 +225,28 @@
         <ul class="grid-container">
             <li *ngFor="let data of drinksData;  let i = index; ">
                 <div id="orderCards">
-                    <div id="image-price">
-                        <img [src]="data.file" alt="Image">
-                        <p>{{ data.price }} Ft</p>
+                        <div id="image-price">
+                            <img [src]="data.file" alt="Image">
+                            <p>{{ data.price }} Ft</p>
+                        </div>
+                        <div id="name-component-button">
+                            <p class="p">{{ data.name }}</p>
+                            <p class="p2">{{ data.component }} L</p>
+                            <div class="orderbutton">
+                                <button class="plus-minusBtn" mat-raised-button (click)="minus(drinksData, i)">
+                                <p class="p4">-</p>
+                            </button>
+                            <span>
+                                <p class="p3">{{ data.number }}</p>
+                            </span>
+                            <button class="plus-minusBtn" mat-raised-button (click)="plus(drinksData, i)">
+                                <p class="p4">+</p>
+                            </button>
+                            <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
+                                <p>Kosárba!</p>
+                            </button>
+                        </div>
                     </div>
-                    <div class="orderbutton">
-                        <button class="plus-minusBtn" mat-raised-button (click)="minus(drinksData, i)">
-                          <p class="p4">-</p>
-                      </button>
-                      <span>
-                          <p class="p3">{{ data.number }}</p>
-                      </span>
-                      <button class="plus-minusBtn" mat-raised-button (click)="plus(drinksData, i)">
-                          <p class="p4">+</p>
-                      </button>
-                      <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                          <p>Kosárba!</p>
-                      </button>
-                  </div>
                 </div>
             </li>
         </ul>

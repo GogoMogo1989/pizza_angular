@@ -76,9 +76,10 @@ export class BasketComponent {
   }
 
   getAllNames() {
-    this.allNames = this.storedOrderData.map((order) => order.name).join(', ');
+    this.allNames = this.storedOrderData.map((order) => `${order.name} ${order.number} db`).join(', ');;
     console.log(this.allNames);
   }
+
 
 
   onSubmit() {
@@ -92,7 +93,7 @@ export class BasketComponent {
       houseNumber: this.houseNumber,
       floor: this.floor,
       door: this.door,
-      phoneNumber: this.phoneNumber
+      phoneNumber: this.phoneNumber,
     }
   
     this.http.post('http://localhost:3000/api/data/order', orderData)

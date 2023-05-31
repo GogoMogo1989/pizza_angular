@@ -18,6 +18,7 @@ export class OrderMainComponent implements OnInit {
   orderData: any[] = [];
   orderDataLength: number = 0;
   number: number = 0;
+  originalPrice!: number
 
 
   scrollTo(element: HTMLElement): void {
@@ -48,12 +49,13 @@ export class OrderMainComponent implements OnInit {
     );
   }
 
-  saveToCart(name: string, component: string, image: string, price: number){
+  saveToCart(name: string, component: string, image: string, price: number, number: number){
     const newItem = {
       name: name,
       component: component,
       file: image,
-      price: price
+      price: price,
+      number: number,
     };
     this.orderData.push(newItem);
     this.calculateOrderDataLength()
@@ -75,13 +77,15 @@ export class OrderMainComponent implements OnInit {
   }
 
   minus(category: any[], index: number) {
-    if (category[index].number > 0) {
+    if (category[index].number > 1) {
       category[index].number -= 1;
+      category[index].price = category[index].price / (category[index].number + 1) * category[index].number;
     }
   }
-  
+
   plus(category: any[], index: number) {
     category[index].number += 1;
+    category[index].price = category[index].price / (category[index].number - 1) * category[index].number;
   }
 
 }
