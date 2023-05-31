@@ -46,6 +46,10 @@ const dataSchema = new mongoose.Schema({
     option:{
       type:String,
       required: true
+    },
+    number:{
+      type: Number,
+      required: true
     }
   });
 
@@ -168,7 +172,8 @@ app.post('/api/data', (req, res) => {
     name: req.body.name,
     component: req.body.component,
     price: req.body.price,
-    option: req.body.option
+    option: req.body.option,
+    number: req.body.number
   });
 
   data.save().then(() => {

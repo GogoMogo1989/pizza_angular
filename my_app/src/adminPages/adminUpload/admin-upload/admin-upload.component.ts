@@ -17,6 +17,7 @@ export class AdminUploadComponent implements OnInit {
   originalData: any[] = []; 
   selectedOption: string|null = null;
   selectedOption2: string|null = null;
+  number!: 0;
 
   constructor(private http: HttpClient) {}
 
@@ -39,7 +40,8 @@ export class AdminUploadComponent implements OnInit {
           name: this.name,
           component: this.component,
           price: this.price,
-          option: this.selectedOption
+          option: this.selectedOption,
+          number: 0
         };
 
         this.http.post('http://localhost:3000/api/data', data).subscribe(
@@ -49,7 +51,8 @@ export class AdminUploadComponent implements OnInit {
             this.name = "";
             this.price ="";
             this.component="";
-            this.option=""
+            this.option="";
+            this.number=0;
           },
           error => {
             console.error('Adatok feltöltése sikertelen.', error);
@@ -57,7 +60,8 @@ export class AdminUploadComponent implements OnInit {
             this.name = "";
             this.price ="";
             this.component="";
-            this.option=""
+            this.option="";
+            this.number=0;
           }
         );
       };

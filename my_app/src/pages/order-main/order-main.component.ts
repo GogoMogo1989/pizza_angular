@@ -17,6 +17,7 @@ export class OrderMainComponent implements OnInit {
   error: string = '';
   orderData: any[] = [];
   orderDataLength: number = 0;
+  number: number = 0;
 
 
   scrollTo(element: HTMLElement): void {
@@ -52,7 +53,7 @@ export class OrderMainComponent implements OnInit {
       name: name,
       component: component,
       file: image,
-      price: price
+      price: price,
     };
     this.orderData.push(newItem);
     this.calculateOrderDataLength()
@@ -71,6 +72,16 @@ export class OrderMainComponent implements OnInit {
 
   saveOrderDataToLocalStorage() {
     localStorage.setItem('orderData', JSON.stringify(this.orderData));
+  }
+
+  minus(category: any[], index: number) {
+    if (category[index].number > 0) {
+      category[index].number -= 1;
+    }
+  }
+  
+  plus(category: any[], index: number) {
+    category[index].number += 1;
   }
 
 }

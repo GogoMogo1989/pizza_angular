@@ -27,10 +27,11 @@
 
 
 <div id="main">
+
     <div id="order" #pizzas>
         <h3 class="pizzas">Pizzák</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of pizzasData">
+            <li *ngFor="let data of pizzasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -40,7 +41,16 @@
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
                         <div class="orderbutton">
-                            <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(pizzasData, i)">
+                                <p class="p4">-</p>
+                            </button>
+                            <span>
+                                <p class="p3">{{ data.number }}</p>
+                            </span>
+                            <button class="plus-minusBtn" mat-raised-button (click)="plus(pizzasData, i)">
+                                <p class="p4">+</p>
+                            </button>
+                            <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
                                 <p>Kosárba!</p>
                             </button>
                         </div>
@@ -53,7 +63,7 @@
     <div id="order" #piadinas>
         <h3 class="piadinas">Piadínák</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of piadinasData">
+            <li *ngFor="let data of piadinasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -62,9 +72,20 @@
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
-                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
+                        <div class="orderbutton">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(piadinasData, i)">
+                              <p class="p4">-</p>
+                          </button>
+                          <span>
+                              <p class="p3">{{ data.number }}</p>
+                          </span>
+                          <button class="plus-minusBtn" mat-raised-button (click)="plus(piadinasData, i)">
+                              <p class="p4">+</p>
+                          </button>
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                              <p>Kosárba!</p>
+                          </button>
+                      </div>
                     </div>
                 </div>
             </li>
@@ -74,7 +95,7 @@
     <div id="order" #pastas>
         <h3 class="pastas" >Tészták</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of pastasData">
+            <li *ngFor="let data of pastasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -83,9 +104,20 @@
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
-                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
+                        <div class="orderbutton">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(pastasData, i)">
+                              <p class="p4">-</p>
+                          </button>
+                          <span>
+                              <p class="p3">{{ data.number }}</p>
+                          </span>
+                          <button class="plus-minusBtn" mat-raised-button (click)="plus(pastasData, i)">
+                              <p class="p4">+</p>
+                          </button>
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                              <p>Kosárba!</p>
+                          </button>
+                      </div>
                     </div>
                 </div>
             </li>
@@ -95,7 +127,7 @@
     <div id="order" #salads>
         <h3 class="salads" >Saláták</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of saladsData">
+            <li *ngFor="let data of saladsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -104,10 +136,21 @@
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
-                        <<button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
-                    </div>  
+                        <div class="orderbutton">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(saladsData, i)">
+                              <p class="p4">-</p>
+                          </button>
+                          <span>
+                              <p class="p3">{{ data.number }}</p>
+                          </span>
+                          <button class="plus-minusBtn" mat-raised-button (click)="plus(saladsData, i)">
+                              <p class="p4">+</p>
+                          </button>
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                              <p>Kosárba!</p>
+                          </button>
+                      </div>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -116,7 +159,7 @@
     <div id="order" #soups>
         <h3 class="soups">Levesek</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of soupsData">
+            <li *ngFor="let data of soupsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -125,9 +168,20 @@
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
-                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
+                        <div class="orderbutton">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(soupsData, i)">
+                              <p class="p4">-</p>
+                          </button>
+                          <span>
+                              <p class="p3">{{ data.number }}</p>
+                          </span>
+                          <button class="plus-minusBtn" mat-raised-button (click)="plus(soupsData, i)">
+                              <p class="p4">+</p>
+                          </button>
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                              <p>Kosárba!</p>
+                          </button>
+                      </div>
                     </div>
                 </div>
             </li>
@@ -137,7 +191,7 @@
     <div id="order" #desserts>
         <h3 class="desserts" >Deszertek</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of dessertsData">
+            <li *ngFor="let data of dessertsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
@@ -146,9 +200,20 @@
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
-                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
+                        <div class="orderbutton">
+                            <button class="plus-minusBtn" mat-raised-button (click)="minus(dessertsData, i)">
+                              <p class="p4">-</p>
+                          </button>
+                          <span>
+                              <p class="p3">{{ data.number }}</p>
+                          </span>
+                          <button class="plus-minusBtn" mat-raised-button (click)="plus(dessertsData, i)">
+                              <p class="p4">+</p>
+                          </button>
+                          <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                              <p>Kosárba!</p>
+                          </button>
+                      </div>
                     </div>
                 </div>
             </li>
@@ -158,19 +223,26 @@
     <div id="order" #drinks>
         <h3 class="drinks">Italok</h3>
         <ul class="grid-container">
-            <li *ngFor="let data of drinksData">
+            <li *ngFor="let data of drinksData;  let i = index; ">
                 <div id="orderCards">
                     <div id="image-price">
                         <img [src]="data.file" alt="Image">
                         <p>{{ data.price }} Ft</p>
                     </div>
-                    <div id="name-component-button">
-                        <p class="p">{{ data.name }}</p>
-                        <p class="p2">{{ data.component }} l</p>
-                        <button mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
-                            <p>Kosárba!</p>
-                        </button>
-                    </div>
+                    <div class="orderbutton">
+                        <button class="plus-minusBtn" mat-raised-button (click)="minus(drinksData, i)">
+                          <p class="p4">-</p>
+                      </button>
+                      <span>
+                          <p class="p3">{{ data.number }}</p>
+                      </span>
+                      <button class="plus-minusBtn" mat-raised-button (click)="plus(drinksData, i)">
+                          <p class="p4">+</p>
+                      </button>
+                      <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price)">
+                          <p>Kosárba!</p>
+                      </button>
+                  </div>
                 </div>
             </li>
         </ul>
