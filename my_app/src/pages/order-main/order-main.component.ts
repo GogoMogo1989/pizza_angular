@@ -48,12 +48,12 @@ export class OrderMainComponent implements OnInit {
     );
   }
 
-  saveToCart(name: string, component: string, image: string, price: string){
+  saveToCart(name: string, component: string, image: string, price: number){
     const newItem = {
       name: name,
       component: component,
       file: image,
-      price: price,
+      price: price
     };
     this.orderData.push(newItem);
     this.calculateOrderDataLength()
