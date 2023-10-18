@@ -53,10 +53,12 @@
                             <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                                 <p>Kosárba!</p>
                             </button>
+                            <button mat-raised-button class="view-details-button" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                                Nagy méret
+                            </button>
                         </div>
                     </div>
                 </div>
-            </li>
         </ul>
     </div>
 

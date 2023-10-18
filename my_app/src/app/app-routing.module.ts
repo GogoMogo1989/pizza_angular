@@ -10,11 +10,13 @@ import { AdminRegistrationComponent } from 'src/adminPages/admin-registration/ad
 import { AdminLoginComponent } from 'src/adminPages/admin-login/admin-login.component';
 import { RegistrationComponent } from 'src/pages/registration/registration.component';
 import { LoginComponent } from 'src/pages/login/login.component';
+import { ProductDetailDialogComponent } from 'src/dialog/product-detail-dialog-component/product-detail-dialog-component.component';
 
 import { AuthGuard } from 'src/authGuard/authGuard';
 
 const routes: Routes = [
-  {path:'adminupload', component: AdminUploadComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: 'landingpage', pathMatch: 'full'},
+  {path: 'adminupload', component: AdminUploadComponent, canActivate: [AuthGuard]},
   {path: 'adminmain', component: AdminMainComponent, canActivate: [AuthGuard]},
   {path: 'adminregistration', component: AdminRegistrationComponent},
   {path: 'adminlogin', component: AdminLoginComponent},
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'basket', component: BasketComponent},
   {path: 'restaurant', component: RestaurantComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  { path: 'ordermain/:id/:name', component: ProductDetailDialogComponent }
+
 ];
 
 @NgModule({

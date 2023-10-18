@@ -1,5 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-main',
@@ -25,7 +27,7 @@ export class OrderMainComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
   }
  
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public dialog: MatDialog, private route: Router){}
 
   ngOnInit() {
     this.loadData()
@@ -86,6 +88,18 @@ export class OrderMainComponent implements OnInit {
   plus(category: any[], index: number) {
     category[index].number += 1;
     category[index].price = category[index].price / (category[index].number - 1) * category[index].number;
+  }
+
+  openProductPage(name: string, file: string, component: string, id: number): void {
+    this.route.navigate([`/ordermain/${id}/${name}`], {
+      state: {
+        data: {
+          name: name,
+          file: file,
+          component: component
+        }
+      }
+    });
   }
 
 }
