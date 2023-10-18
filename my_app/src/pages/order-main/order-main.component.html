@@ -34,7 +34,7 @@
             <li *ngFor="let data of pizzasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -65,7 +65,7 @@
             <li *ngFor="let data of piadinasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p> {{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -97,14 +97,14 @@
             <li *ngFor="let data of pastasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
                         <p class="p">{{ data.name }}</p>
                         <p class="p2">{{ data.component }}</p>
                         <div class="orderbutton">
-                            <button class="plus-minusBtn" mat-raised-button (click)="minus(pastasData, i)">
+                          <button class="plus-minusBtn" mat-raised-button (click)="minus(pastasData, i)">
                               <p class="p4">-</p>
                           </button>
                           <span>
@@ -129,7 +129,7 @@
             <li *ngFor="let data of saladsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -161,7 +161,7 @@
             <li *ngFor="let data of soupsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -193,7 +193,7 @@
             <li *ngFor="let data of dessertsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -225,7 +225,7 @@
             <li *ngFor="let data of drinksData;  let i = index; ">
                 <div id="orderCards">
                         <div id="image-price">
-                            <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
+                            <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id, data.price, data.number)">
                             <p>{{ data.price }} Ft</p>
                         </div>
                         <div id="name-component-button">

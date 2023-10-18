@@ -90,13 +90,15 @@ export class OrderMainComponent implements OnInit {
     category[index].price = category[index].price / (category[index].number - 1) * category[index].number;
   }
 
-  openProductPage(name: string, file: string, component: string, id: number): void {
+  openProductPage(name: string, file: string, component: string, id: number, price: number, number: number): void {
     this.route.navigate([`/ordermain/${id}/${name}`], {
       state: {
         data: {
           name: name,
           file: file,
-          component: component
+          component: component,
+          price: price,
+          number: number
         }
       }
     });
