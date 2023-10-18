@@ -34,7 +34,7 @@
             <li *ngFor="let data of pizzasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -53,9 +53,6 @@
                             <button class="saveToCart" mat-raised-button (click)="saveToCart(data.name, data.component, data.file, data.price, data.number)">
                                 <p>Kosárba!</p>
                             </button>
-                            <button mat-raised-button class="view-details-button" (click)="openProductPage(data.name, data.file, data.component, data._id)">
-                                Nagy méret
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +65,7 @@
             <li *ngFor="let data of piadinasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p> {{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -100,7 +97,7 @@
             <li *ngFor="let data of pastasData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -132,7 +129,7 @@
             <li *ngFor="let data of saladsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -164,7 +161,7 @@
             <li *ngFor="let data of soupsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -196,7 +193,7 @@
             <li *ngFor="let data of dessertsData;  let i = index;">
                 <div id="orderCards">
                     <div id="image-price">
-                        <img [src]="data.file" alt="Image">
+                        <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                         <p>{{ data.price }} Ft</p>
                     </div>
                     <div id="name-component-button">
@@ -228,7 +225,7 @@
             <li *ngFor="let data of drinksData;  let i = index; ">
                 <div id="orderCards">
                         <div id="image-price">
-                            <img [src]="data.file" alt="Image">
+                            <img [src]="data.file" alt="Image" (click)="openProductPage(data.name, data.file, data.component, data._id)">
                             <p>{{ data.price }} Ft</p>
                         </div>
                         <div id="name-component-button">

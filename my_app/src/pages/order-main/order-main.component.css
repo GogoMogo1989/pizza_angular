@@ -44,6 +44,7 @@
 
 #image-price img {
     width: 200px;
+    cursor: pointer;
 }
 
 #image-price p {

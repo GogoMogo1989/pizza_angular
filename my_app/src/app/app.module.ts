@@ -28,6 +28,7 @@ import { AdminRegistrationComponent } from 'src/adminPages/admin-registration/ad
 import { AdminLoginComponent } from 'src/adminPages/admin-login/admin-login.component';
 import { RegistrationComponent } from 'src/pages/registration/registration.component';
 import { LoginComponent } from 'src/pages/login/login.component';
+import { ProductDetailDialogComponent } from 'src/dialog/product-detail-dialog-component/product-detail-dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginComponent } from 'src/pages/login/login.component';
     AdminLoginComponent,
     RegistrationComponent,
     LoginComponent,
+    ProductDetailDialogComponent
   ],
   imports: [
     BrowserModule,
