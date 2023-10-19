@@ -1,28 +1,31 @@
 <app-toolbar [orderDataLength]="orderDataLength"></app-toolbar>
-<ul class="grid-container">
-    <div id="orderCards">
-        <div id="image-price">
-            <img [src]="data?.file" alt="Image">
-            <p>{{ data?.price }} Ft</p>
-        </div>
-        <div id="name-component-button">
-            <p class="p">{{ data?.name }}</p>
-            <p class="p2">{{ data?.component }}</p>
-            <div class="orderbutton">
-                <button class="plus-minusBtn" mat-raised-button (click)="minus()">
-                    <p class="p4">-</p>
-                </button>
-                <p class="p3">{{ data?.number }}</p>
-                <button class="plus-minusBtn" mat-raised-button (click)="plus()">
-                    <p class="p4">+</p>
-                </button>
-                <button class="saveToCart" mat-raised-button (click)="saveToCart(data?.name, data?.component, data?.file, data?.price, data?.number)">
-                    <p>Kosárba!</p>
-                </button>
-                <button mat-raised-button class="back-button" (click)="goBack()">
-                Vissza
-                </button>
+<div class="bebe">
+    <div class="grid-container">
+        <div id="orderCards">
+            <div id="image-price">
+                <img [src]="data?.file" alt="Image">
+                <p>{{ data?.price }} Ft</p>
+            </div>
+            <div id="name-component-button">
+                <p class="p">{{ data?.name }}</p>
+                <p class="p2">{{ data?.component }}</p>
+                <div class="orderbutton">
+                    <button class="plus-minusBtn" mat-raised-button (click)="minus()">
+                        <p class="p4">-</p>
+                    </button>
+                    <p class="p3">{{ data?.number }}</p>
+                    <button class="plus-minusBtn" mat-raised-button (click)="plus()">
+                        <p class="p4">+</p>
+                    </button>
+                    <button class="saveToCart" mat-raised-button (click)="saveToCart(data?.name, data?.component, data?.file, data?.price, data?.number)">
+                        <p>Kosárba!</p>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</ul>
+    <button mat-raised-button class="back-button" (click)="goBack()">
+        Vissza
+    </button>
+</div>
+

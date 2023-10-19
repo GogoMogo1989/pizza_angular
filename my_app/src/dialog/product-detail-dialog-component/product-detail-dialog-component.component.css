@@ -4,16 +4,148 @@
     margin-bottom: 10px;
   }
   
-  .product-image {
-    max-width: 50%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .product-component {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-  }
-  
+.product-image {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-component {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.grid-container{
+  width:100%;
+  margin:0;
+  padding:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  margin-top: 50px;
+}
+
+.toolbar {
+  margin-top: 100px;
+  background-color: #d81919;
+  height: 60px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar button:hover {
+  color: rgb(240, 240, 18);
+}
+
+.toolbar button {
+  font-size: 18px;
+}
+
+#main{
+  background-color: #fefbfb;
+}
+
+#order {
+  margin-top: 100px;
+  padding-top: 100px;
+  width: 100%;
+}
+
+#orderCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+#image-price img {
+  width: 500px;
+}
+
+#image-price p {
+  background-color: #d81919;
+  height: 40px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#name-component-button {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 400px;
+  justify-content: space-around;
+}
+
+#name {
+  align-self: flex-start;
+}
+
+#component {
+  align-self: center;
+}
+
+.saveToCart{
+  align-self: flex-end;
+  width: 200px;
+}
+
+.orderbutton{
+  display: flex;
+  justify-content: space-around;
+}
+
+h3{
+  padding-left: 30px;
+}
+
+.p{
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.p2{
+  padding-left: 20px;
+}
+
+.p3{
+  height: 10px;
+  font-size: 20px;
+}
+
+.p4{
+  font-size: 20px;
+}
+
+.plus-minusBtn{
+  align-self: flex-end;
+}
+
+.bebe{
+  width: 100%;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
