@@ -24,7 +24,7 @@ export class OrderMainComponent implements OnInit {
 
 
   scrollTo(element: HTMLElement): void {
-      element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
+    element.scrollIntoView({ behavior: 'smooth' , block: 'start'});
   }
  
   constructor(private http: HttpClient, public dialog: MatDialog, private route: Router){}

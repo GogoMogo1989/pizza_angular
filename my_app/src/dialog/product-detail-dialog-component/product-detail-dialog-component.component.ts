@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-product-detail-dialog-component',
   templateUrl: './product-detail-dialog-component.component.html',
@@ -48,19 +46,15 @@ export class ProductDetailDialogComponent {
     localStorage.setItem('orderData', JSON.stringify(this.orderData));
   }
 
-  decrementQuantity() {
-    if (this.data?.number && this.data.number > 0) {
+  minus() {
+    if (this.data?.number && this.data.number > 1) {
       this.data.number--;
-      this.calculateOrderDataLength();
-      this.saveToCart(this.data.name, this.data.component, this.data.file, this.data.price, this.data.number);
     }
   }
 
-  incrementQuantity() {
+  plus() {
     if (this.data?.number) {
       this.data.number++;
-      this.calculateOrderDataLength();
-      this.saveToCart(this.data.name, this.data.component, this.data.file, this.data.price, this.data.number);
     }
   }
 

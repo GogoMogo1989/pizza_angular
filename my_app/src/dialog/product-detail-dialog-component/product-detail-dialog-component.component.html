@@ -1,12 +1,5 @@
-<!-- <h1 class="product-name">{{ data?.name }}</h1>
-<img class="product-image" [src]="data?.file" alt="Nagy kép">
-<p class="product-component">{{ data?.component }}</p>
-<p class="product-component">{{ data?.price }}</p>
-<p class="product-component">{{ data?.number }}</p>
-<button mat-raised-button class="back-button" (click)="goBack()">Vissza</button>
- -->
-
- <ul class="grid-container">
+<app-toolbar [orderDataLength]="orderDataLength"></app-toolbar>
+<ul class="grid-container">
     <div id="orderCards">
         <div id="image-price">
             <img [src]="data?.file" alt="Image">
@@ -16,11 +9,11 @@
             <p class="p">{{ data?.name }}</p>
             <p class="p2">{{ data?.component }}</p>
             <div class="orderbutton">
-                <button class="plus-minusBtn" mat-raised-button (click)="decrementQuantity()">
+                <button class="plus-minusBtn" mat-raised-button (click)="minus()">
                     <p class="p4">-</p>
                 </button>
                 <p class="p3">{{ data?.number }}</p>
-                <button class="plus-minusBtn" mat-raised-button (click)="incrementQuantity()">
+                <button class="plus-minusBtn" mat-raised-button (click)="plus()">
                     <p class="p4">+</p>
                 </button>
                 <button class="saveToCart" mat-raised-button (click)="saveToCart(data?.name, data?.component, data?.file, data?.price, data?.number)">

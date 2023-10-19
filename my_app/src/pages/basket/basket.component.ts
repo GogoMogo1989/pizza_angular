@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./basket.component.css']
 })
 
-export class BasketComponent {
+export class BasketComponent implements OnInit {
 
   storedOrderData: any[] = [];
   totalPrice: number = 0;
@@ -24,6 +24,7 @@ export class BasketComponent {
   phoneNumber: string = '';
   loginUserData: any[] = [];
   error: string= "";
+  orderDataLength: number = 0;
 
   constructor(private http: HttpClient) {
 
@@ -57,6 +58,15 @@ export class BasketComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.calculateOrderDataLength()
+  }
+
+  calculateOrderDataLength() {
+    this.orderDataLength = this.storedOrderData.length;
+    console.log(this.orderDataLength)
+  }
+
   removeFromCart(item: any) {
     const index = this.storedOrderData.indexOf(item);
     if (index !== -1) {
@@ -68,6 +78,7 @@ export class BasketComponent {
   
   refreshStoredOrderData() {
     this.storedOrderData = [...this.storedOrderData];
+    localStorage.setItem('orderData', JSON.stringify(this.storedOrderData));
   }
 
   calculateTotalPrice() {
