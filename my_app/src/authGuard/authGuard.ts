@@ -10,13 +10,12 @@ export class AuthGuard implements CanActivate {
   static logout() {
     throw new Error('Method not implemented.');
   }
-  private isLoggedIn = false;
 
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean | UrlTree {
+    _next: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot): boolean | UrlTree {
     if (this.authService.isLoggedIn()) {
       return true;
     } else {
@@ -27,12 +26,10 @@ export class AuthGuard implements CanActivate {
 
   login() {
     if(localStorage.getItem('currentUser')){
-    this.isLoggedIn = true;
     }
   }
 
   logout(){
     localStorage.removeItem('currentUser')
-    this.isLoggedIn= false
   }
 }
