@@ -11,25 +11,29 @@ export class AuthGuard implements CanActivate {
     throw new Error('Method not implemented.');
   }
 
+  private isLoggedIn = false;
+
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(
-    _next: ActivatedRouteSnapshot,
-    _state: RouterStateSnapshot): boolean | UrlTree {
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): boolean | UrlTree {
     if (this.authService.isLoggedIn()) {
       return true;
     } else {
-      this.router.navigate(['/admin/login']);
+      this.router.navigate(['/adminlogin']);
       return false;
     }
   }
 
   login() {
     if(localStorage.getItem('currentUser')){
+      this.isLoggedIn = true;
     }
   }
 
   logout(){
     localStorage.removeItem('currentUser')
+    this.isLoggedIn= false
   }
 }
